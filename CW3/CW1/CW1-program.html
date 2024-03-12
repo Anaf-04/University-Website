@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="HKIU">
+    <meta name="description" content="HKIU webpages">
+    <meta name="keywords" content="HTML">
+    <title> HKIU PROGRAM PAGE</title>
+    <link rel="stylesheet" type="text/css" href="../CSS/theme.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/program.css">
+
+</head>
+
+<body>
+    <div id="head">
+        <header>
+            <img src="../image/logo.png" alt="HKIU logo" width="400" height="100">
+            <h1> Hong Kong Industrial University </h1>
+        </header>
+    </div>
+    <div id="navigation">
+        <nav>
+
+            <div><a href="./CW1-home.html">Home</a></div>
+            <div><a href="./CW1-about.html">About</a></div>
+            <div><a href="./CW1-apply.html">Apply</a></div>
+            <div><a href="./CW1-visit.html">Visit</a></div>
+            <div><a href="./CW1-program.html">Program</a></div>
+            <div><a href="./CW1-contact.html">Contact</a></div>
+
+        </nav>
+    </div>
+    <h1>Program</h1>
+    <div id="science"><p id="loop"></p></div>
+    <div id="videoContainer">
+        <video id="myVideo" width="800" controls="controls" autoplay="autoplay">
+            <source src="https://personal.cs.cityu.edu.hk/~cs2204/2023/video/video1.mp4">
+            <source src="https://personal.cs.cityu.edu.hk/~cs2204/2023/video/video1.mkv">
+        </video>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>College</th>
+                <th>Program</th>
+                <th>Duration</th>
+                <th>Language</th>
+                <th>Fee</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>College of Engineering</td>
+                <td>BSc in Computer Science and Technology</td>
+                <td>4 years</td>
+                <td>English</td>
+                <td>HK$42,100</td>
+            </tr>
+            <tr>
+                <td>College of Engineering</td>
+                <td>BEng in Electronic Information</td>
+                <td>4 years</td>
+                <td>English</td>
+                <td>HK$42,100</td>
+            </tr>
+            <tr>
+                <td>College of Engineering</td>
+                <td>BEng in Materials Science and Engineering</td>
+                <td>4 years</td>
+                <td>English</td>
+                <td>HK$42,100</td>
+            </tr>
+            <tr>
+                <td>College of Engineering</td>
+                <td>BEng in Materials and Chemicals</td>
+                <td>4 years</td>
+                <td>English</td>
+                <td>HK$42,100</td>
+            </tr>
+            <tr>
+                <td>College of Science</td>
+                <td>BSc in Physics</td>
+                <td>4 years</td>
+                <td>English</td>
+                <td>HK$42,100</td>
+            </tr>
+            <tr>
+                <td>College of Science</td>
+                <td>BSc in Chemistry</td>
+                <td>4 years</td>
+                <td>English</td>
+                <td>HK$42,100</td>
+            </tr>
+            <tr>
+                <td>College of Science</td>
+                <td>BSc in Biology</td>
+                <td>4 years</td>
+                <td>English</td>
+                <td>HK$42,100</td>
+            </tr>
+            <tr>
+                <td>College of Interdisciplinary Studies</td>
+                <td>BSc in Cognitive Science</td>
+                <td>4 years</td>
+                <td>English</td>
+                <td>HK$42,100</td>
+            </tr>
+            <tr>
+                <td>College of Interdisciplinary Studies</td>
+                <td>BEng in Biomedical Engineering</td>
+                <td>4 years</td>
+                <td>English</td>
+                <td>HK$42,100</td>
+            </tr>
+            <tr>
+                <td>College of Interdisciplinary Studies</td>
+                <td>BEng in Electronics and Information Technology</td>
+                <td>4 years</td>
+                <td>English</td>
+                <td>HK$42,100</td>
+            </tr>
+            <tr>
+                <td>College of Interdisciplinary Studies</td>
+                <td>BEng in Biology and Medicine</td>
+                <td>4 years</td>
+                <td>English</td>
+                <td>HK$42,100</td>
+            </tr>
+        </tbody>
+
+    </table>
+
+    <script>
+        var videoSources = ["https://personal.cs.cityu.edu.hk/~cs2204/2023/video/video1.mp4", "https://personal.cs.cityu.edu.hk/~cs2204/2023/video/video2.mp4"];
+        var currentVideoIndex = 0;
+
+        function switchVideo() {
+            var video = document.getElementById('myVideo');
+            currentVideoIndex = (currentVideoIndex + 1) % videoSources.length;
+            video.src = videoSources[currentVideoIndex];
+            video.load();
+            video.play();
+        }
+
+        document.getElementById('myVideo').addEventListener('ended', switchVideo);
+
+        switchVideo();
+        
+        class PromotionManager {
+            constructor(promotions, elementId) {
+                this.promotions = promotions;
+                this.element = document.getElementById(elementId);
+                this.intervalId = null;
+            }
+
+            getRandomPromo() {
+                var randomIndex = Math.floor(Math.random() * this.promotions.length);
+                return this.promotions[randomIndex];
+            }
+
+            displayRandomPromo() {
+                var randomPromo = this.getRandomPromo();
+                this.element.innerHTML = randomPromo;
+            }
+
+            startRotation(interval) {
+                this.intervalId = setInterval(() => {
+                    this.displayRandomPromo();
+                }, interval);
+            }
+
+            stopRotation() {
+                clearInterval(this.intervalId);
+            }
+
+            displayInitialPromo() {
+                this.displayRandomPromo();
+                this.startRotation(3000);
+            }
+        }
+
+        var promotions = [
+            "Join Hong Kong Industrial University's College of Science for world-class education and research opportunities in science and technology! 20 QUOTAS LEFT!",
+            "Join the future of engineering with Hong Kong Industrial University's College of Engineering, offering innovative programs and world-class faculty to prepare you for success in the field! 40 QUOTAS LEFT",
+            "Join the future of interdisciplinary studies with Hong Kong Industrial University's College of Interdisciplinary Studies, offering innovative programs and world-class faculty to prepare you for success in various fields! 30 QUOTAS LEFT!"
+        ];
+
+        var promoManager = new PromotionManager(promotions, 'loop');
+        promoManager.displayInitialPromo();
+
+    </script>
+
+    <div id="foot">
+        <footer>
+            <img src="../image/footer_logo.png" alt="HKIU-footer" width="300" height="100">
+            <p>© CityU 2023 sources of images and text from Wikipedia Commons and Courtesy of Icon pack by Icons8 --
+                designed by <a href="./CW1-design.html">ANAF</a></p>
+        </footer>
+    </div>
+
+</body>
+
+</html>

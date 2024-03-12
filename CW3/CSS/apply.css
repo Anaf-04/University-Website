@@ -1,0 +1,181 @@
+#welcome{
+    font-size: 170%;
+    text-align: center;
+    font-weight: bold;
+}
+#apply_table {
+    font-size: 100%;   
+}
+h2{
+    text-align: left;
+    font-size: 120%;
+    font-weight: bold;
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
+}
+#apply_eng{
+    background-color: rgb(255, 255, 255);
+    width: 33.3%;
+    box-sizing: border-box;
+    border: 2px solid black;
+    border-radius: 30% 30% 0% 0%;
+    padding-top: 0.4%;
+    padding-bottom: 0.4%;
+    text-align: center;
+    float: left;
+    font-size: 20px;
+}
+#apply_sci{
+    background-color: rgb(180, 180, 180);
+    width: 33.3%;
+    box-sizing: border-box;
+    border: 2px solid black;
+    border-radius: 30% 30% 0% 0%;
+    padding-top: 0.4%;
+    padding-bottom: 0.4%;
+    text-align: center;
+    float: left;
+    font-size: 20px;
+}
+#apply_is{
+    background-color: rgb(180, 180, 180);
+    width: 33.3%;
+    box-sizing: border-box;
+    border: 2px solid black;
+    border-radius: 30% 30% 0% 0%;
+    padding-top: 0.4%;
+    padding-bottom: 0.4%;
+    text-align: center;
+    float: left;
+    font-size: 20px;
+}
+#apply_eng:hover{
+    /* background-color: rgb(127, 127, 127); */
+    border: 2px solid black;
+    box-shadow: 5px 5px 10px 10px rgb(106, 106, 106);
+    transition: 0.4s;
+    cursor: pointer;
+}
+#apply_sci:hover{
+    /* background-color: rgb(127, 127, 127); */
+    border: 2px solid black;
+    box-shadow: 5px 5px 10px 10px rgb(106, 106, 106);
+    transition: 0.4s;
+    cursor: pointer;
+}
+#apply_is:hover{
+    /* background-color: rgb(127, 127, 127); */
+    border: 2px solid black;
+    box-shadow: 5px 5px 10px 10px rgb(106, 106, 106);
+    transition: 0.4s;
+    cursor: pointer;
+}
+/* #apply_eng:hover ~ #engineering, #apply_sci:hover ~ #science, #apply_is:hover ~ #studies{
+    background-color: white;
+    border: 2px solid black;
+    box-shadow: 10px 10px rgb(106, 106, 106);
+    transition: 0.4s;
+    cursor: pointer;
+    display: block;
+} */
+
+#engineering {
+    border: 2px solid black;
+    border-collapse: collapse;
+    display: block;
+    clear: both;
+}
+#science{
+    border: 2px solid black;
+    border-collapse: collapse;
+    display: none;
+    clear: both;
+}
+#studies{
+    border: 2px solid black;
+    border-collapse: collapse;
+    display: none;
+    clear: both;
+}
+#engineering:hover , #science:hover , #studies:hover {
+    display: block;
+}
+/* #engineering:hover ~ #apply_eng, #science:hover ~ #apply_sci, #studies:hover ~ #apply_is{
+    background-color: white;
+} */
+
+
+#engineering div , #science div , #studies div{
+    display: inline-block;
+    border: 2px solid rgb(43, 35, 35);
+    border-collapse: collapse;
+    width: 32%;
+    padding: 15px 5px 15px 10px;
+
+}
+#engineering div:hover , #science div:hover , #studies div:hover{
+    background-color: pink;
+    box-shadow: 7px 7px rgb(106, 106, 106);
+    transition: 0.5s;
+}
+
+#chosen_majors{
+    margin: 5% 7%;
+    clear: both;
+}
+#chosen_majors table{
+    width: 100%;
+    /* border-collapse: collapse; */
+    
+}
+#chosen_majors th{
+    text-align: left;
+    background-color: rgb(196, 85, 104);
+    width: 33.33%;
+    color: white;
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
+    /* border: 2px solid rgb(112, 112, 112); */
+
+}
+#chosen_majors td{
+    padding-top: 0.5%;
+    width: 33.33%;
+    padding-bottom: 0.5%;
+    /* border: 2px solid rgb(112, 112, 112); */
+}
+#odd1 , #odd2, #odd3, #odd4, #odd5, #even1, #even2, #even3, #even4, #even5{
+    background-color: rgb(201, 201, 201);
+}
+#odd1:hover , #odd2:hover, #odd3:hover, #odd4:hover, #odd5:hover, #even1:hover, #even2:hover, #even3:hover, #even4:hover, #even5:hover{
+    background-color: rgb(254, 212, 219);
+}
+/* #even:hover{
+    background-color:rgb(254, 212, 219) ;
+} */
+.submit , .clear, button{
+    background-color: rgb(132, 31, 48);
+    color: white;
+    width: 150px;
+    font-size: 20px;
+    border-radius: 20%;
+    border: solid black;
+    display: inline-block;
+    text-align: center;
+}
+.submit:hover, .clear:hover , button:hover{
+    box-shadow: 7px 7px rgb(106, 106, 106);
+    transition: 0.4s;
+    background-color: rgb(255, 127, 148);
+}
+.submit:active , .clear:active , button:active{
+    background-color: rgb(253, 203, 212);
+}
+.submit a , .clear a{
+    text-decoration: none;
+    color: white;
+}
+
+
+
+

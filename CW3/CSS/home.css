@@ -1,0 +1,28 @@
+#welcome{
+    background-color: rgb(169, 169, 169);
+    text-align: center;
+    padding: 1%;
+    font-weight: bold;
+}
+
+#information{
+    float: left;
+    width: 50%;
+    font-size: 130%;
+}
+
+#map_apply{
+    width: 50%;
+    font-size: 120%;
+    float: left;
+}
+#map_apply dt{
+    margin-bottom: 3%;
+}
+#map_apply img{
+    margin-bottom: 5%;
+}
+#location_img{
+    width: 75%;
+    height: 60%;
+}

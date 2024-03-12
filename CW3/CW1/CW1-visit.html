@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="HKIU">
+    <meta name="description" content="HKIU webpages">
+    <meta name="keywords" content="HTML">
+    <title> HKIU VISIT PAGE</title>
+    <link rel="stylesheet" type="text/css" href="../CSS/theme.css">
+    <link rel="stylesheet" type="text/css" href="../CSS/visit.css">
+    <script src="https://personal.cs.cityu.edu.hk/~cs2204/2023/cw3cs2204.js"></script>
+</head>
+
+<body>
+    <div id="head">
+        <header>
+            <img src="../image/logo.png" alt="HKIU logo" width="400" height="100">
+            <h1> Hong Kong Industrial University </h1>
+        </header>
+    </div>
+    <div id="navigation">
+        <nav>
+
+            <div><a href="./CW1-home.html">Home</a></div>
+            <div><a href="./CW1-about.html">About</a></div>
+            <div><a href="./CW1-apply.html">Apply</a></div>
+            <div><a href="./CW1-visit.html">Visit</a></div>
+            <div><a href="./CW1-program.html">Program</a></div>
+            <div><a href="./CW1-contact.html">Contact</a></div>
+
+        </nav>
+    </div>
+    <div id="welcome">
+        <p>We warmly welcome you to visit us at our Kowloon campus and experience our vibrant learning community. Our
+            campus is located in the Hong Kong Kowloon High-Tech Park, where we collaborate closely with institutes of
+            the Chinese Academy of Sciences.
+        </p>
+        <p>During your visit, you can explore our world-class facilities, including the Protein Folding Science Center,
+            Hong Kong Advanced Computing Equipment, Hong Kong Ultrafast Laser Facility, Hong Kong Electron-Positron
+            Collider, and Hong Kong Supercomputer Facility. These facilities are available to our faculty, students, and
+            researchers worldwide.
+        </p>
+        <p>You will also have the chance to meet our renowned scholars and experts from home and abroad committed to
+            providing students with cutting-edge knowledge and skills in their respective fields. Our faculty members
+            are recognized leaders in their fields, and their research has been published in prestigious journals such
+            as Cell, Nature, and Science.
+        </p>
+        <p>We hope you will come and visit us soon to experience firsthand the dynamic and innovative community at Hong
+            Kong Industrial University.
+        </p>
+    </div>
+    <img src="../image/location.jpg" alt="loaction-of-HKIU" width="800" height="800" id="image">
+    <div id="location">
+        <h2>Location</h2>
+        <p>Address: Tat Chee Avenue, Kowloon, Hong Kong SAR</p>
+        <p>Tel: (852) 1234 5678</p>
+        <p>Fax: (852) 8765 4321</p>
+        <p>Email: visit@hkiu.edu.hk</p>
+    </div>
+    <br><br>
+    <div class="reservation">
+        <h3>Hong Kong Industrial University is having an open day on campus! Please make a reservation to visit our
+            campus!</h3>
+        <form method="get" action="#">
+            <fieldset>
+                <legend>Booking Information:</legend>
+                <label for="date">Date:</label>
+                <input type="date" id="date" name="date" value="">
+                <br>
+                <label for="time">Time:</label>
+                <select id="time" name="time">
+                    <option value="9:30-10:30">9:30-10:30</option>
+                    <option value="11:30-12:30"> 11:30-12:30</option>
+                    <option value="14:30-15:30"> 14:30-15:30</option>
+                    <option value="18:30-19:30"> 18:30-19:30</option>
+                </select>
+                <br>
+                <label for="visitors">No.of Visitors:</label>
+                <input type="text" id="visitors" name="visitor">
+                <br><br>
+                <p class="alert"></p>
+                <input type="submit" value="Check Avalaibility" id="check">
+                <input type="reset" value="Reset" id="reset">
+            </fieldset>
+        </form>
+    </div>
+    <script>
+        const message = document.querySelector('.alert');
+        const tm = document.querySelector('#time');
+        const dt = document.querySelector('#date');
+        const visit = document.querySelector('#visitors');
+
+        visit.onfocus = function () {
+            message.innerHTML = '';
+        }
+
+        visit.onblur = function () {
+            var str = visit.value;
+            var isEmpty = true;
+
+            for (var i = 0; i < str.length; i++) {
+                if (str[i] !== ' ') {
+                    isEmpty = false;
+                    break;
+                }
+            }
+            if (isEmpty) {
+                message.setAttribute('style', 'color: red; text-align: center;');
+                message.innerHTML = 'Data not completed, please re-enter.';
+            }
+            if (str < 0) {
+                message.setAttribute('style', 'color: red; text-align: center;');
+                message.innerHTML = 'Please enter a valid number of people!';
+            }
+            for (var a = 0; a < str.length; a++) {
+                if (isNaN(str[a])) {
+                    message.setAttribute('style', 'color: red; text-align: center;');
+                    message.innerHTML = 'Please enter a valid number of people!';
+                }
+            }
+        }
+        const chk = document.getElementById('check');
+
+        chk.addEventListener('click', function (event) {
+            event.preventDefault();
+
+            var str = visit.value;
+            var isEmpty = true;
+
+            for (var i = 0; i < str.length; i++) {
+                if (str[i] !== ' ') {
+                    isEmpty = false;
+                    break;
+                }
+            }
+
+            if (isEmpty) {
+                message.setAttribute('style', 'color: red; text-align: center;');
+                message.innerHTML = 'Data not completed, please re-enter.';
+            } else if (str < 0 || isNaN(str)) {
+                message.setAttribute('style', 'color: red; text-align: center;');
+                message.innerHTML = 'Please enter a valid number of people.';
+            } else {
+                message.innerHTML = '';
+
+                let reservationDate = dt.value;
+                let reservationTime = tm.value;
+                let numberOfPeople = visit.value;
+                let isReservationSuccessful = reserve(reservationDate, reservationTime, numberOfPeople);
+
+                if (isReservationSuccessful) {
+                    alert("Your reservation is successful!");
+                    // chk.removeEventListener('click', f1); 
+                    // chk.setAttribute('disabled','true'); [[ this is done to cancel the form submission after one time]]
+                } else {
+                    alert("Sorry, the reservation is full!");
+                    // chk.setAttribute('disabled','true'); [[ again this is done to cancel the form submission after one time]]
+                }
+            }
+
+            // Cancel form submission in all situations
+            return false;
+        });
+
+    </script>
+
+
+    <div id="foot">
+        <footer>
+            <img src="../image/footer_logo.png" alt="HKIU-footer" width="300" height="100">
+            <p>© CityU 2023 sources of images and text from Wikipedia Commons and Courtesy of Icon pack by Icons8 --
+                designed by <a href="./CW1-design.html">ANAF</a></p>
+        </footer>
+    </div>
+
+</body>
+
+</html>
