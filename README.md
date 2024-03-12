@@ -6,4 +6,4 @@ A typical university (Hong Kong Industrial University) website.
 - The visit page allows you to book a reservation to visit the campus.
 - The program page elaborates on all the majors and their fees.
 - On the contact page, you can find the contact information.
-- The design page gives a brief introduction to the creator of the website and different CSS and JavaScript skills.
+- The design page gives a brief introduction of the creator of the website and different CSS and JavaScript skills.
